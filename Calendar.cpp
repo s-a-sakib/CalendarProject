@@ -9,30 +9,6 @@ void days(int a , int b, int c, int d);
 
 using namespace std;
 
-int main(){
-    int a , b , j , daycode;
-    cout << "Please input the year : 20";
-    cin >> a;
-    cout << endl;
-
-    int counter = -1;
-
-    // leap yean and non leap year month code
-    int non_lp[12] = {0,3,3,6,1,4,6,2,5,0,3,5};
-    int lp[12] = {-1,2,3,6,1,4,6,2,5,0,3,5};
-
-    // user defined funtion call
-    for(int i = 1 ; i <= 12 ; i++){
-        //calculaing how many days a month have
-        b = day_count(i,a); // i is the month and a is the last two digits of the year
-        month(i,a); //printing the month name
-        week();
-        days(a,b,non_lp[i-1],lp[i-1]);
-        cout << endl << endl;
-    }
-    return 0;
-}
-
 int day_count(int i , int a){
     int b;
     if(i == 1 || i == 3 || i == 5 || i == 7 || i == 8 || i == 10 || i == 12)
@@ -69,4 +45,28 @@ void days(int a , int b , int c , int d){
         if(counter % 7 == 0) cout << endl;
     }
     counter = -1;
+}
+
+int main(){
+    int a , b , j , daycode;
+    cout << "Please input the year : 20";
+    cin >> a;
+    cout << endl;
+
+    int counter = -1;
+
+    // leap yean and non leap year month code
+    int non_lp[12] = {0,3,3,6,1,4,6,2,5,0,3,5};
+    int lp[12] = {-1,2,3,6,1,4,6,2,5,0,3,5};
+
+    // user defined funtion call
+    for(int i = 1 ; i <= 12 ; i++){
+        //calculaing how many days a month have
+        b = day_count(i,a); // i is the month and a is the last two digits of the year
+        month(i,a); //printing the month name
+        week();
+        days(a,b,non_lp[i-1],lp[i-1]);
+        cout << endl << endl;
+    }
+    return 0;
 }
